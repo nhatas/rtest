@@ -22,7 +22,6 @@ RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86
   find /opt/conda/ -follow -type f -name '*.js.map' -delete && \
   /opt/conda/bin/conda clean -afy
 
-
 ENV PATH=/opt/conda/bin:$PATH
 
 # install mamba
@@ -37,3 +36,14 @@ RUN chmod a+x /opt/conda/bin/entrypoint.sh
 
 #ENTRYPOINT ["/opt/conda/bin/entrypoint.sh"]
 CMD [".", "/opt/conda/bin/entrypoint.sh"]
+
+
+#### bashrc testing (/code already exists in dockerfile)
+# RUN cp /root/.bashrc /code
+# RUN chmod -R 777 /code
+# RUN chmod -R 777 /root
+
+# try...
+# CMD ["source / or ." "/code/.bashrc"]
+
+# might have to manually source /code/.bashrc
